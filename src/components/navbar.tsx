@@ -5,35 +5,28 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useUser } from "@/context/userContext";
-import { useEffect } from "react";
 
 const Navbar = () => {
   const { user, setUser } = useUser();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
 
-  useEffect(() => {
-    const nameParam = searchParams.get("name");
-    const emailParam = searchParams.get("email");
+  // useEffect(() => {
+  //   const nameParam = searchParams.get("name");
+  //   const emailParam = searchParams.get("email");
 
-    if (nameParam && emailParam) {
-      let decodedEmail = emailParam;
-      try {
-        // Check if the email is base64 encoded
-        if (emailParam.indexOf("@") === -1) {
-          decodedEmail = atob(emailParam);
-        }
-      } catch (e) {
-        console.error("Error decoding email:", e);
-      }
-
-      //   setUser({
-      //     name: decodeURIComponent(nameParam),
-      //     email: decodedEmail,
-
-      //   });
-    }
-  }, [searchParams, setUser]);
+  //   if (nameParam && emailParam) {
+  //     let decodedEmail = emailParam;
+  //     try {
+  //       // Check if the email is base64 encoded
+  //       if (emailParam.indexOf("@") === -1) {
+  //         decodedEmail = atob(emailParam);
+  //       }
+  //     } catch (e) {
+  //       console.error("Error decoding email:", e);
+  //     }
+  //   }
+  // }, [searchParams, setUser]);
 
   // Define dynamic navigation links
   const links = [

@@ -44,11 +44,12 @@ const Page = () => {
     Pick<IBook, "name" | "author" | "genre" | "city" | "email">[]
   >([]);
   const [userData, setUserData] = useState<IOwnerUser | null>(null);
+  const { user } = useUser();
 
-  const searchParams = useSearchParams();
-  const name = searchParams.get("name");
-  const email = searchParams.get("email");
-  if (!name || !email) {
+  // const searchParams = useSearchParams();
+  // const name = searchParams.get("name");
+  // const email = searchParams.get("email");
+  if (!user.email) {
     toast.error("Invalid Login Details");
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
@@ -69,7 +70,6 @@ const Page = () => {
       </div>
     );
   }
-  const { user, setUser } = useUser();
 
   useEffect(() => {
     async function getBooks() {
@@ -122,8 +122,8 @@ const Page = () => {
     console.log("Form submitted:", data);
     try {
       const result = await addBook({
-        ownerEmail: email,
-        ownerName: name || "",
+        ownerEmail: user.email,
+        ownerName: user.name || "",
         bookName: data.bookName,
         author: data.author,
         genre: data.genre,
@@ -342,7 +342,7 @@ const Page = () => {
                       className="text-red-600 hover:text-red-800 text-sm font-medium flex items-center gap-1"
                       onClick={() =>
                         handleDeleteBook({
-                          ownerEmail: email,
+                          ownerEmail: user.email,
                           bookName: book.name,
                           bookAuthor: book.author,
                         })
