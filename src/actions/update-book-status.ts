@@ -2,7 +2,7 @@ import { bookCollectionName, IBook } from "@/modules/book";
 import { ServerActionResult } from "@/types";
 import { logger } from "./logger";
 import { mongodb } from "@/lib/mongodb";
-import { ISekkerUser, seekerCollectionName } from "@/modules/seeker";
+import { ISeekerUser, seekerCollectionName } from "@/modules/seeker";
 import { IOwnerUser, ownerCollectionName } from "@/modules/owner";
 
 export type UpdateBookStatusResult = ServerActionResult<undefined>;
@@ -57,7 +57,7 @@ export const updateBookStatus = async (
       }
     } else {
       const res = await mongodb
-        .collection<ISekkerUser>(seekerCollectionName)
+        .collection<ISeekerUser>(seekerCollectionName)
         .updateOne(
           {
             email: data.ownerEmail,

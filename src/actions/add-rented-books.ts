@@ -1,7 +1,7 @@
 "use server";
 import { mongodb } from "@/lib/mongodb";
 import { IOwnerUser, ownerCollectionName } from "@/modules/owner";
-import { ISekkerUser, seekerCollectionName } from "@/modules/seeker";
+import { ISeekerUser, seekerCollectionName } from "@/modules/seeker";
 import { ServerActionResult } from "@/types";
 import { logger } from "./logger";
 
@@ -58,7 +58,7 @@ export const addRentedBooks = async (
       }
     } else {
       const res = await mongodb
-        .collection<ISekkerUser>(seekerCollectionName)
+        .collection<ISeekerUser>(seekerCollectionName)
         .updateOne(
           {
             email: data.ownerEmail,

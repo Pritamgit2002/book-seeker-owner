@@ -1,11 +1,11 @@
 import { IBook } from "./book";
 
-export type ISekkerUser = {
+export type ISeekerUser = {
   _id: string;
   name: string;
   email: string;
   password: string;
-  role: "sekker";
+  role: "seeker";
   booksRented?: (IBook & {
     status: "Available" | "Rented";
   })[];

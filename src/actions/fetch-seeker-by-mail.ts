@@ -1,10 +1,10 @@
 "use server";
 import { mongodb } from "@/lib/mongodb";
-import { ISekkerUser, seekerCollectionName } from "@/modules/seeker";
+import { ISeekerUser, seekerCollectionName } from "@/modules/seeker";
 import { ServerActionResult } from "@/types";
 import { logger } from "./logger";
 
-export type FetchSeekerByMailResult = ServerActionResult<ISekkerUser>;
+export type FetchSeekerByMailResult = ServerActionResult<ISeekerUser>;
 
 export type FetchUserParams = {
   email: string;
@@ -24,7 +24,7 @@ export const fetchSeekerByMail = async (
 
     await mongodb.connect();
     const user = await mongodb
-      .collection<ISekkerUser>(seekerCollectionName)
+      .collection<ISeekerUser>(seekerCollectionName)
       .findOne({
         email: data.email,
       });

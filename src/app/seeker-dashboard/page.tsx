@@ -1,7 +1,7 @@
 "use client";
 import { fetchSeekerByMail } from "@/actions/fetch-seeker-by-mail";
 import { useUser } from "@/context/userContext";
-import { ISekkerUser } from "@/modules/seeker";
+import { ISeekerUser } from "@/modules/seeker";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 const SeekerDashboard = () => {
   const { user } = useUser();
-  const [userData, setUserData] = useState<ISekkerUser | null>(null);
+  const [userData, setUserData] = useState<ISeekerUser | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

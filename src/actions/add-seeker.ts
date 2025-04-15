@@ -2,7 +2,7 @@
 import { ServerActionResult } from "@/types";
 import { logger } from "./logger";
 import { mongodb } from "@/lib/mongodb";
-import { ISekkerUser, seekerCollectionName } from "@/modules/seeker";
+import { ISeekerUser, seekerCollectionName } from "@/modules/seeker";
 import { nanoid } from "nanoid";
 
 export type AddSeekerresult = ServerActionResult<undefined>;
@@ -24,13 +24,13 @@ export const addSeeker = async (data: any): Promise<AddSeekerresult> => {
 
     await mongodb.connect();
     const user = await mongodb
-      .collection<ISekkerUser>(seekerCollectionName)
+      .collection<ISeekerUser>(seekerCollectionName)
       .insertOne({
-        id: nanoid(),
+        _id: nanoid(),
         name: data.name,
         email: data.email,
         password: data.password,
-        role: "sekker",
+        role: "seeker",
         booksRented: [],
       });
 
