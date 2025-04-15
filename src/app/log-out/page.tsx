@@ -54,7 +54,7 @@ const Page = () => {
                 router.push("/log-in");
               }, 200);
             }}
-            className="w-full py-2 px-4 rounded-xl bg-red-500 hover:bg-red-600 text-white font-bold transition-all duration-300"
+            className="w-full py-2 px-4 rounded-xl bg-red-500 hover:bg-red-600 text-white font-bold transition-all duration-300 cursor-pointer"
           >
             Logout
           </Button>

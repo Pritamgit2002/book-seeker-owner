@@ -24,7 +24,7 @@ export default function Home() {
               Please log in to access your personalized dashboard.
             </p>
             <Link href="/log-in">
-              <Button className="w-full py-3 text-lg bg-red-500 hover:bg-red-600 text-white font-semibold rounded-xl transition duration-300">
+              <Button className="w-full py-3 text-lg bg-red-500 hover:bg-red-600 text-white font-semibold rounded-xl transition duration-300 cursor-pointer">
                 Log In
               </Button>
             </Link>

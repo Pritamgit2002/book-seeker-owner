@@ -242,7 +242,7 @@ const Page = () => {
                         statusUpdatedBooks.includes(book.name)
                           ? "bg-red-600 hover:bg-red-700"
                           : "bg-green-600 hover:bg-green-700"
-                      } text-white font-semibold py-2 px-6 rounded-lg transition-all ease-in duration-300`}
+                      } text-white font-semibold py-2 px-6 rounded transition-all ease-in duration-300 cursor-pointer`}
                       onClick={() => {
                         toggleStatus(
                           user.email,
