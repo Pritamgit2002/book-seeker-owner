@@ -36,6 +36,21 @@ export const addBook = async (data: AddBookParams): Promise<AddBookResult> => {
     }
 
     await mongodb.connect();
+
+    const bookExists = await mongodb
+      .collection<IBook>(bookCollectionName)
+      .findOne({
+        author: data.author,
+        name: data.bookName,
+      });
+
+    if (bookExists) {
+      return {
+        success: false,
+        message: ` Book ${data.bookName} and author ${data.author} already exists`,
+      };
+    }
+
     const user = await mongodb.collection<IBook>(bookCollectionName).insertOne({
       id: nanoid(),
       name: data.bookName,

@@ -95,11 +95,11 @@ const Page = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 p-4">
-      <motion.form
+      <form
         onSubmit={handleSubmit(onSubmit)}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        // initial={{ opacity: 0, y: 40 }}
+        // animate={{ opacity: 1, y: 0 }}
+        // transition={{ duration: 0.6, ease: "easeOut" }}
         className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-10 space-y-6"
       >
         <motion.h2
@@ -181,7 +181,7 @@ const Page = () => {
 
         <Button
           type="submit"
-          className="w-full mt-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 transition duration-300"
+          className=" cursor-pointer w-full mt-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 transition duration-300"
         >
           Submit
         </Button>
@@ -189,7 +189,7 @@ const Page = () => {
           Password verification is not provided. To get prev data please use
           same email.
         </p>
-      </motion.form>
+      </form>
     </div>
   );
 };

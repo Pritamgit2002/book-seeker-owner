@@ -79,6 +79,7 @@ const Page = () => {
         });
         if (result.success) {
           setBooks(result.data);
+          console.log("Books:", result.data);
         } else {
           toast.error(result.message);
         }
@@ -107,7 +108,7 @@ const Page = () => {
       }
     }
     getUserData();
-  }, [user.email, user.type, userData?.booksRented]);
+  }, [user.email, user.type]);
 
   const {
     register,
@@ -305,7 +306,8 @@ const Page = () => {
         </Dialog>
 
         {/* Published Books Section */}
-        {books.length > 0 && (
+        <span>hello: {books.length}</span>
+        {books.length && (
           <section className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-900">
               📖 Published Books

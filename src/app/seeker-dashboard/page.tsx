@@ -21,7 +21,10 @@ const SeekerDashboard = () => {
           type: user.type,
         });
         if (result.success) {
-          setUserData(result.data);
+          setUserData({
+            ...result.data,
+            _id: result.data._id.toString(), // double-check serialization
+          });
         } else {
           toast.error(result.message);
         }
@@ -32,7 +35,7 @@ const SeekerDashboard = () => {
       }
     }
     getUserData();
-  }, [user.email, user.type, userData?.booksRented]);
+  }, [user.email, user.type, userData?._id]);
 
   if (loading) return <p className="p-4">Loading...</p>;
 

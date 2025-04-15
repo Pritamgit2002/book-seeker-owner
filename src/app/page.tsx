@@ -35,11 +35,30 @@ export default function Home() {
               Welcome back,
             </h2>
             <p className="text-xl text-gray-700">{user.name}</p>
-            <Link href={`/${user.type}-dashboard`}>
-              <Button className="mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-xl transition-all duration-300">
-                Go to Dashboard
-              </Button>
-            </Link>
+            {
+              // if user is owner
+              user.type === "owner" ? (
+                <Link
+                  href={`/owner-dashboard?name=${encodeURIComponent(
+                    user.name
+                  )}&email=${btoa(user.email)}`}
+                >
+                  <Button className="mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-xl transition-all duration-300 cursor-pointer">
+                    Go to Dashboard
+                  </Button>
+                </Link>
+              ) : (
+                <Link
+                  href={`/seeker-dashboard?name=${encodeURIComponent(
+                    user.name
+                  )}&email=${btoa(user.email)}`}
+                >
+                  <Button className="mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-xl transition-all duration-300 cursor-pointer">
+                    Go to Dashboard
+                  </Button>
+                </Link>
+              )
+            }
           </>
         )}
       </motion.div>

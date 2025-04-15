@@ -38,7 +38,11 @@ export const fetchSeekerByMail = async (
 
     return {
       success: true,
-      data: user,
+      data: {
+        ...user,
+        _id: user._id.toString(), // convert ObjectId to string
+        booksRented: user.booksRented ?? [], // ensure this is defined and plain
+      },
       message: "User fetched successfully",
     };
   } catch (error: any) {
