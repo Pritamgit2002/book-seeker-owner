@@ -187,7 +187,7 @@ const Page = () => {
         {/* Add Book Dialog */}
         <Dialog>
           <DialogTrigger asChild>
-            <Button className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
+            <Button className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 cursor-pointer">
               ➕ Add New Book
             </Button>
           </DialogTrigger>
@@ -296,7 +296,7 @@ const Page = () => {
               <div className="pt-4">
                 <Button
                   type="submit"
-                  className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300"
+                  className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 cursor-pointer"
                 >
                   Submit Book
                 </Button>
@@ -306,12 +306,11 @@ const Page = () => {
         </Dialog>
 
         {/* Published Books Section */}
-        <span>hello: {books.length}</span>
+        <h2 className="text-xl font-semibold text-gray-900">
+          📖 Published Books
+        </h2>
         {books.length && (
           <section className="space-y-4">
-            <h2 className="text-xl font-semibold text-gray-900">
-              📖 Published Books
-            </h2>
             <span className="text-sm text-gray-600">
               Visible to other users
             </span>
@@ -339,9 +338,9 @@ const Page = () => {
 
                   {/* Delete Button */}
                   <div className="pt-3">
-                    <button
+                    <Button
                       type="button"
-                      className="text-red-600 hover:text-red-800 text-sm font-medium flex items-center gap-1"
+                      className="text-red-600 hover:text-red-800 text-sm font-medium flex items-center gap-1 cursor-pointer"
                       onClick={() =>
                         handleDeleteBook({
                           ownerEmail: user.email,
@@ -351,7 +350,7 @@ const Page = () => {
                       }
                     >
                       <Trash2 className="w-4 h-4" /> Delete
-                    </button>
+                    </Button>
                   </div>
                 </div>
               ))}
